@@ -43,6 +43,12 @@ app.get('/about', (req, res) => {
   });
 });
 
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'My Projects'
+  });
+});
+
 app.get('/details', (req, res) => {
   res.send({
     error: 'Unable to connect the server.',
@@ -54,6 +60,7 @@ app.get('/details', (req, res) => {
     ]
   });
 });
+
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
