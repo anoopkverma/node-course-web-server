@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'hbs');
 
@@ -23,9 +24,9 @@ app.use((req, res, next) => {
 })
 
 //user defined middleware for handling maintenance situations.
-app.use((req, res, next) => {
-  res.render('maintenance.hbs')
-})
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs')
+// })
 
 app.use(express.static(__dirname + '/public'));
 
@@ -53,6 +54,6 @@ app.get('/details', (req, res) => {
     ]
   });
 });
-app.listen(3000, () => {
-  console.log('Server is running on port: 3000');
+app.listen(port, () => {
+  console.log(`Server is running on port: ${port}`);
 });
